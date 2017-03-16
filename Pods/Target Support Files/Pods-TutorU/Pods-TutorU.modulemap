@@ -1,0 +1,6 @@
+framework module Pods_TutorU {
+  umbrella header "Pods-TutorU-umbrella.h"
+
+  export *
+  module * { export * }
+}

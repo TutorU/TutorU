@@ -24,3 +24,17 @@ TutorU connects students to tutors in an easy and innovative way. Students can r
 * Tutors can make more money based on their rank.
 * Students can pay the tutor - through the app.
 * Ads?
+
+## Tables and Columns
+- User
+  * Enrolled Classes
+  * Teaching Classes 
+  * Rating as Student
+  * Rating as Tutor
+  * Rank
+  * Num Tutors used
+  * Credit Card Info
+
+- Classes
+  * Tutors Available
+  * Number of Tutors Available
