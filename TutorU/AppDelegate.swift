@@ -17,14 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
         // Initialize Parse
         // Set applicationId and server based on the values in the Heroku settings.
         // clientKey is not used on Parse open source unless explicitly configured
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
             configuration.applicationId = "TutorU"
-            configuration.clientKey = "TutorURoxTutopiaSux"  // set to nil assuming you have not set clientKey
             configuration.server = "https://tutoruu.herokuapp.com/parse"
+            
+            let plistManager: PlistManager = PlistManager.sharedInstance
+            if let clientKey = plistManager.valueForKey("HerokuClientKey", fromPlistFilename: "Keys") {
+                configuration.clientKey = clientKey as? String  // set to nil assuming you have not set clientKey
+            }
         }))
         return true
     }
