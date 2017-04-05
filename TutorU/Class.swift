@@ -9,6 +9,16 @@
 protocol Class {
     var name: String { get }
     var number: String? { get }
+    
+    // TODO: - Eventually change the tutors available to be a list of tutors, not users!
+    var tutorsAvailable: [User]? { get }
+    var numberOfTutorsAvailable: Int { get }
+}
+
+// Extension of class protocol for default implementations.
+extension Class {
+    // Default value for the number of tutors available.
+    var numberOfTutorsAvailable: Int { return self.tutorsAvailable?.count ?? 0 }
 }
 
 protocol UniversityClass: Class { }

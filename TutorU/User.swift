@@ -17,6 +17,7 @@ protocol User {
     var lastName: String? { get }
     var email: String? { get }
     var classesTaken: [Class]? { get }
+    var enrolledClasses: [Class]? { get }
     var profileImage: UIImage? { get }
     var isOnline: Bool { get }
     
@@ -26,6 +27,7 @@ protocol User {
     func logout(success: @escaping BaseNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
 }
 
+// Extension of User to provide default implementations for the User protocol-conformed classes.
 extension User {
     // Define default behavior for signing in user.
     static func signInUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
