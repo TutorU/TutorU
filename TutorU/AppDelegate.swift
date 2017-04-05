@@ -21,13 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse
         // Set applicationId and server based on the values in the Heroku settings.
         // clientKey is not used on Parse open source unless explicitly configured
-        Parse.initializeWithConfiguration(
-            ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
-                configuration.applicationId = "TutorU"
-                configuration.clientKey = "TutorURoxTutopiaSux"  // set to nil assuming you have not set clientKey
-                configuration.server = "https://tutoruu.herokuapp.com/parse"
-            })
-        )
+        Parse.initialize(with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
+            configuration.applicationId = "TutorU"
+            configuration.clientKey = "TutorURoxTutopiaSux"  // set to nil assuming you have not set clientKey
+            configuration.server = "https://tutoruu.herokuapp.com/parse"
+        }))
         return true
     }
 
