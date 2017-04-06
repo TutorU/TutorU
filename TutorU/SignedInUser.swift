@@ -20,7 +20,18 @@ class SignedInUser: User {
     var parseUser: PFUser?
     var classesTaken: [Class]?
     var enrolledClasses: [Class]?
-    static var currentUser: SignedInUser?
+    static private var _currentUser: SignedInUser?
+    static var currentUser: SignedInUser? {
+        get {
+            if _currentUser == nil {
+                _currentUser = SignedInUser(withPFUser: PFUser.current())
+            }
+            return _currentUser
+        }
+        set {
+            _currentUser = newValue
+        }
+    }
 
     // Possibly Optional variables below.
     var profileImage: UIImage?
@@ -37,7 +48,10 @@ class SignedInUser: User {
     }
     
     // Initializer using a PFUser object.
-    required init(withPFUser user: PFUser) {
+    required init?(withPFUser user: PFUser?) {
+        guard let user: PFUser = user else {
+            return nil
+        }
         self.parseUser = user
     }
     

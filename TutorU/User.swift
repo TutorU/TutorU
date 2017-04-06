@@ -18,7 +18,7 @@ protocol User {
     
     // Mark: - Required initializers.
     init(withUsername username: String, withPassword password: String, withEmail: String, withFirstName firstName: String, withLastName lastName: String)
-    init(withPFUser user: PFUser)
+    init?(withPFUser user: PFUser?)
     
     // MARK: - User protocol functions.
     static func signInUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
@@ -36,7 +36,10 @@ extension User {
                 failure(error)
                 return
             }
-            let signedInUser: SignedInUser = SignedInUser(withPFUser: user)
+            guard let signedInUser: SignedInUser = SignedInUser(withPFUser: user) else {
+                failure(error)
+                return
+            }
             success(signedInUser)
         }
     }
@@ -49,7 +52,10 @@ extension User {
                 return
             }
             // Can safely use the bang (!) below since we already signed the user up.
-            let signedInUser: SignedInUser = SignedInUser(withPFUser: self.parseUser!)
+            guard let signedInUser: SignedInUser = SignedInUser(withPFUser: self.parseUser!) else {
+                failure(error)
+                return
+            }
             success(signedInUser)
         })
     }
