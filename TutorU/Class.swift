@@ -6,12 +6,13 @@
 //  Copyright © 2017 Nick McDonald. All rights reserved.
 //
 
+/// Classes that students are enrolled in and tutors tutor for.
 protocol Class {
     var name: String { get }
     var number: String? { get }
     
     // TODO: - Eventually change the tutors available to be a list of tutors, not users!
-    var tutorsAvailable: [User]? { get }
+    var tutorsAvailable: [SignedInUser]? { get }
     var numberOfTutorsAvailable: Int { get }
 }
 

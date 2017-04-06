@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.applicationId = "TutorU"
             configuration.server = "https://tutoruu.herokuapp.com/parse"
             
+            // Use the PlistManager class to retrieve the client key.
+            // This can be useful in the future if we want to hide the client key in commits.
             let plistManager: PlistManager = PlistManager.sharedInstance
             if let clientKey = plistManager.valueForKey("HerokuClientKey", fromPlistFilename: "Keys") {
                 configuration.clientKey = clientKey as? String  // set to nil assuming you have not set clientKey

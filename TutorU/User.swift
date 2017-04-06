@@ -6,41 +6,51 @@
 //  Copyright © 2017 Nick McDonald. All rights reserved.
 //
 
-import UIKit
+import Parse
 
-typealias UserNetworkCommSuccess = (User)->()
-
+/// User of the app.
 protocol User {
     var username: String? { get }
-    var password: String? { get }
-    var firstName: String? { get }
-    var lastName: String? { get }
+    var firstName: String? { get set }
+    var lastName: String? { get set }
     var email: String? { get }
-    var classesTaken: [Class]? { get }
-    var enrolledClasses: [Class]? { get }
-    var profileImage: UIImage? { get }
-    var isOnline: Bool { get }
+    var parseUser: PFUser? { get set }
     
-    // MARK: - User protocol functions
+    // Mark: - Required initializers.
+    init(withUsername username: String, withPassword password: String, withEmail: String, withFirstName firstName: String, withLastName lastName: String)
+    init(withPFUser user: PFUser)
+    
+    // MARK: - User protocol functions.
     static func signInUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
-    static func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
-    func logout(success: @escaping BaseNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
+    func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
 }
 
-// Extension of User to provide default implementations for the User protocol-conformed classes.
 extension User {
+    var username: String? { return self.parseUser?.username }
+    var email: String? { return self.parseUser?.email }
+    
     // Define default behavior for signing in user.
     static func signInUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
-        // TODO: - Implement me!
+        PFUser.logInWithUsername(inBackground: username, password: password) { (returnedUser: PFUser?, error: Error?) in
+            guard error == nil, let user: PFUser = returnedUser else {
+                failure(error)
+                return
+            }
+            let signedInUser: SignedInUser = SignedInUser(withPFUser: user)
+            success(signedInUser)
+        }
     }
     
     // Define default behavior for signing up user.
-    static func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
-        // TODO: - Implement me!
-    }
-    
-    // Define default behavior for logging out user.
-    func logout(success: @escaping BaseNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
-        // TODO: - Implement me!
+    func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
+        self.parseUser?.signUpInBackground(block: { (succeeded: Bool, error: Error?) in
+            guard succeeded == true, error == nil else {
+                failure(error)
+                return
+            }
+            // Can safely use the bang (!) below since we already signed the user up.
+            let signedInUser: SignedInUser = SignedInUser(withPFUser: self.parseUser!)
+            success(signedInUser)
+        })
     }
 }
