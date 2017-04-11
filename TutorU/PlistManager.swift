@@ -10,11 +10,6 @@ import UIKit
 
 class PlistManager: NSObject {
     
-    static let sharedInstance: PlistManager = PlistManager()
-    
-    // Override public init so initializer isn't accessible.
-    private override init() { /* Nothing. */ }
-    
     func valueForKey(_ key: Any, fromPlistFilename filename: String?) -> Any? {
         guard let path = Bundle.main.path(forResource: filename, ofType: "plist"), let dict: NSDictionary = NSDictionary(contentsOfFile: path) else {
             return nil

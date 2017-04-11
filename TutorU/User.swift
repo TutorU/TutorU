@@ -25,6 +25,7 @@ protocol User {
     func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure)
 }
 
+// Default implementations for some User-conformed types.
 extension User {
     var username: String? { return self.parseUser?.username }
     var email: String? { return self.parseUser?.email }

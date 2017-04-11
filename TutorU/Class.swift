@@ -23,3 +23,5 @@ extension Class {
 }
 
 protocol UniversityClass: Class { }
+
+protocol HighSchoolClass: Class { }
