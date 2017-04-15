@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Initialize Parse
-        Parse.initialize(with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
+        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
             configuration.applicationId = "TutorU"
             configuration.server = "https://tutoruu.herokuapp.com/parse"
             
@@ -50,12 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }))
         
+        if User.currentUser != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loggedInViewController = storyboard.instantiateInitialViewController()
+            window?.rootViewController = loggedInViewController
+        }
+        
         // Show a message to the user on their first launch.
         setUserDefaults()
         if shouldShowFirstTimeLaunch {
             showAlphaOrBetaAlert()
         }
-        
         return true
     }
 
