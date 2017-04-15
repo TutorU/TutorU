@@ -10,8 +10,8 @@
 		215BA9BC20E401134C4C1880 /* Pods_TutorU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A80B796AC811C44948EDB8 /* Pods_TutorU.framework */; };
 		268E80274F4328BB68CD5B87 /* Pods_TutorUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4116D1FA66C3EE561C049991 /* Pods_TutorUTests.framework */; };
 		5B07E8762245F950953F93AC /* Pods_TutorUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB460E5E786C4B4C3D203D2 /* Pods_TutorUUITests.framework */; };
-		D56D1E181EA1A63800FBBDCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D1E171EA1A63800FBBDCD /* Main.storyboard */; };
-		D56D1E1D1EA1C97E00FBBDCD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D1E1A1EA1C96C00FBBDCD /* Login.storyboard */; };
+		D56D1E181EA1A63800FBBDCD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D1E171EA1A63800FBBDCD /* Login.storyboard */; };
+		D56D1E1D1EA1C97E00FBBDCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D1E1A1EA1C96C00FBBDCD /* Main.storyboard */; };
 		D5B57A8C1E6693A8008F160D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B57A8B1E6693A8008F160D /* AppDelegate.swift */; };
 		D5B57A8E1E6693A8008F160D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B57A8D1E6693A8008F160D /* LoginViewController.swift */; };
 		D5B57A931E6693A8008F160D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B57A921E6693A8008F160D /* Assets.xcassets */; };
@@ -51,11 +51,11 @@
 		693D86CB90A74B340D2DAF1E /* Pods-TutorUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorUUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TutorUUITests/Pods-TutorUUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9143AF08AFA23223E93AAE7F /* Pods-TutorU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TutorU/Pods-TutorU.debug.xcconfig"; sourceTree = "<group>"; };
 		CFB460E5E786C4B4C3D203D2 /* Pods_TutorUUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TutorUUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D56D1E171EA1A63800FBBDCD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D56D1E1B1EA1C96C00FBBDCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		D56D1E171EA1A63800FBBDCD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		D56D1E1B1EA1C96C00FBBDCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5B57A881E6693A8008F160D /* TutorU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B57A8B1E6693A8008F160D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5B57A8D1E6693A8008F160D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D5B57A8D1E6693A8008F160D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "UI/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		D5B57A921E6693A8008F160D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B57A951E6693A8008F160D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5B57A971E6693A8008F160D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,11 +65,11 @@
 		D5B57AA71E6693A8008F160D /* TutorUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TutorUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B57AAB1E6693A8008F160D /* TutorUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorUUITests.swift; sourceTree = "<group>"; };
 		D5B57AAD1E6693A8008F160D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5C2209A1E9582D100920A9F /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
-		D5C2209D1E95871000920A9F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
-		D5C2209F1E95AC5C00920A9F /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppKeys.plist; sourceTree = "<group>"; };
-		D5C220A11E95ACBA00920A9F /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
-		D5E11A1B1E95E33C00D11FB9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D5C2209A1E9582D100920A9F /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Class.swift; path = Models/Class.swift; sourceTree = "<group>"; };
+		D5C2209D1E95871000920A9F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Definitions.swift; path = "Supporting Files/Definitions.swift"; sourceTree = "<group>"; };
+		D5C2209F1E95AC5C00920A9F /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppKeys.plist; path = "Supporting Files/AppKeys.plist"; sourceTree = "<group>"; };
+		D5C220A11E95ACBA00920A9F /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = "Supporting Files/PlistManager.swift"; sourceTree = "<group>"; };
+		D5E11A1B1E95E33C00D11FB9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		F58C3C96A91DBA6E948E5D22 /* Pods-TutorUTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorUTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TutorUTests/Pods-TutorUTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,8 +190,8 @@
 		D5C220911E95702700920A9F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D56D1E171EA1A63800FBBDCD /* Main.storyboard */,
-				D56D1E1A1EA1C96C00FBBDCD /* Login.storyboard */,
+				D56D1E171EA1A63800FBBDCD /* Login.storyboard */,
+				D56D1E1A1EA1C96C00FBBDCD /* Main.storyboard */,
 				D5C220931E95703700920A9F /* View Controllers */,
 				D5C220921E95703100920A9F /* Views */,
 			);
@@ -350,9 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D56D1E1D1EA1C97E00FBBDCD /* Login.storyboard in Resources */,
+				D56D1E1D1EA1C97E00FBBDCD /* Main.storyboard in Resources */,
 				D5C220A01E95AC5C00920A9F /* AppKeys.plist in Resources */,
-				D56D1E181EA1A63800FBBDCD /* Main.storyboard in Resources */,
+				D56D1E181EA1A63800FBBDCD /* Login.storyboard in Resources */,
 				D5B57A961E6693A8008F160D /* LaunchScreen.storyboard in Resources */,
 				D5B57A931E6693A8008F160D /* Assets.xcassets in Resources */,
 			);
@@ -558,12 +558,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D56D1E1A1EA1C96C00FBBDCD /* Login.storyboard */ = {
+		D56D1E1A1EA1C96C00FBBDCD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D56D1E1B1EA1C96C00FBBDCD /* Base */,
 			);
-			name = Login.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		D5B57A941E6693A8008F160D /* LaunchScreen.storyboard */ = {
