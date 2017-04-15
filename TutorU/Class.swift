@@ -12,7 +12,7 @@ protocol Class {
     var number: String? { get }
     
     // TODO: - Eventually change the tutors available to be a list of tutors, not users!
-    var tutorsAvailable: [SignedInUser]? { get }
+    var tutorsAvailable: [User]? { get }
     var numberOfTutorsAvailable: Int { get }
 }
 

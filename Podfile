@@ -7,7 +7,6 @@ target 'TutorU' do
   pod 'Parse'
   pod 'ParseUI'
 
-
   # Pods for TutorU
 
   target 'TutorUTests' do
