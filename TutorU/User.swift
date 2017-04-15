@@ -15,6 +15,10 @@ enum UserType {
     case student
 }
 
+enum UserCreationError: String, Error {
+    case PFUserConstructorError = "Error constructing PFUser."
+}
+
 class User: NSObject {
     var username: String? { return self.parseUser?.username }
     var email: String? { return self.parseUser?.email }
@@ -72,8 +76,7 @@ class User: NSObject {
                 return
             }
             guard let signedInUser = User(withPFUser: user) else {
-                // TODO: - Change this to a specific User Error.
-                failure(error)
+                failure(UserCreationError.PFUserConstructorError)
                 return
             }
             success(signedInUser)
@@ -89,8 +92,7 @@ class User: NSObject {
             }
             // Can safely use the bang (!) below since we already signed the user up.
             guard let signedInUser = User(withPFUser: self.parseUser!) else {
-                // TODO: - Here as well.
-                failure(error)
+                failure(UserCreationError.PFUserConstructorError)
                 return
             }
             success(signedInUser)

@@ -8,11 +8,14 @@
 
 import UIKit
 
+enum PlistManagerError: Error {
+    case FilenameDoesNotExist
+}
+
 class PlistManager: NSObject {
-    
-    func valueForKey(_ key: Any, fromPlistFilename filename: String?) -> Any? {
+    func valueForKey(_ key: Any, fromPlistFilename filename: String?) throws -> Any? {
         guard let path = Bundle.main.path(forResource: filename, ofType: "plist"), let dict: NSDictionary = NSDictionary(contentsOfFile: path) else {
-            return nil
+            throw PlistManagerError.FilenameDoesNotExist
         }
         return dict[key]
     }

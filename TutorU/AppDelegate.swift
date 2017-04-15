@@ -12,16 +12,28 @@ import Parse
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    static private let herokuClientKeyPlistIdentifier: String = "HerokuClientKey"
-
     var window: UIWindow?
-
-
+    
+    static private let herokuClientKeyPlistIdentifier: String = "HerokuClientKey"
+    lazy private var shouldShowFirstTimeLaunch: Bool = { [unowned self] in
+        var returnVal = false
+        let plistManager = PlistManager()
+        do {
+            if let readAppVersion = try plistManager.valueForKey("CFBundleShortVersionString", fromPlistFilename: "Info") as? String {
+                appVersion = readAppVersion
+                if self.isPreRelease(bundleVersion: appVersion) {
+                    appIsAlphaOrBeta = true
+                    returnVal = true
+                }
+            }
+        } catch {
+            fatalError("Error retrieving CFBundleShortVersionString")
+        }
+        return returnVal
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         // Initialize Parse
-        // Set applicationId and server based on the values in the Heroku settings.
-        // clientKey is not used on Parse open source unless explicitly configured
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
             configuration.applicationId = "TutorU"
             configuration.server = "https://tutoruu.herokuapp.com/parse"
@@ -29,10 +41,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Use the PlistManager class to retrieve the client key.
             // This can be useful in the future if we want to hide the client key in commits.
             let plistManager: PlistManager = PlistManager()
-            if let clientKey = plistManager.valueForKey(AppDelegate.herokuClientKeyPlistIdentifier, fromPlistFilename: "Keys") {
-                configuration.clientKey = clientKey as? String  // set to nil assuming you have not set clientKey
+            do {
+                if let clientKey = try plistManager.valueForKey(AppDelegate.herokuClientKeyPlistIdentifier, fromPlistFilename: appKeysPlistFilenameIdentifier) {
+                    configuration.clientKey = clientKey as? String  // set to nil assuming you have not set clientKey
+                }
+            } catch {
+                fatalError()
             }
         }))
+        
+        // Show a message to the user on their first launch.
+        setUserDefaults()
+        if shouldShowFirstTimeLaunch {
+            showAlphaOrBetaAlert()
+        }
+        
         return true
     }
 
@@ -57,7 +80,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    
+    // MARK: - Helper functions.
+    
+    private func setUserDefaults() {
+        let prefs = UserDefaults.standard
+        if (prefs.value(forKey: appFirstTimeLaunchIdentifier) == nil) {
+            prefs.set(true, forKey: appFirstTimeLaunchIdentifier)
+        }
+    }
+    
+    private func showAlphaOrBetaAlert() {
+        if (UserDefaults.standard.bool(forKey: appFirstTimeLaunchIdentifier)) {
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Welcome to beta TutorU", message: "This is a pre-release version of the app. Expect bugs, misbehaviors, crashes, etc. Please send reports to the TutorU team!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction) in
+                    alertController.dismiss(animated: true, completion: nil)
+                    UserDefaults.standard.set(false, forKey: appFirstTimeLaunchIdentifier)
+                })
+                alertController.addAction(okAction)
+                self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private func isPreRelease(bundleVersion: String) -> Bool {
+        let characters = bundleVersion.characters
+        return characters.first == "0"
+    }
 }
-
