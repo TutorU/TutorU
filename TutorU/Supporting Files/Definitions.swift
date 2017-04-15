@@ -7,15 +7,10 @@
 //
 
 
-// MARK: - Type aliases.
-typealias BaseNetworkCommSuccess = ()->Swift.Void
-typealias BaseNetworkCommFailure = (Error?)->Swift.Void
-
-
 // MARK: - Internal string values.
 let appFirstTimeLaunchIdentifier: String = "AppFirstTimeLaunch"
 let appKeysPlistFilenameIdentifier: String = "AppKeys"
-var appVersion: String = "1.0"
+var appVersion: String = "0.1"
 
 
 // MARK: - Internal boolean values.

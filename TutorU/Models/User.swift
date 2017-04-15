@@ -57,7 +57,7 @@ class User: NSObject {
         self.parseUser = user
     }
     
-    class func logoutCurrentUser(success: @escaping BaseNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
+    class func logoutCurrentUser(success: @escaping ()->Swift.Void, failure: @escaping (Error?)->Swift.Void) {
         PFUser.logOutInBackground { (error: Error?) in
             guard error == nil else {
                 failure(error)
@@ -69,7 +69,7 @@ class User: NSObject {
     }
     
     // Define default behavior for signing in user.
-    static func signInUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
+    static func signInUserWithUsername(_ username: String, withPassword password: String, success: @escaping (User?)->Swift.Void, failure: @escaping (Error?)->Swift.Void) {
         PFUser.logInWithUsername(inBackground: username, password: password) { (returnedUser: PFUser?, error: Error?) in
             guard error == nil, let user = returnedUser else {
                 failure(error)
@@ -79,12 +79,13 @@ class User: NSObject {
                 failure(UserCreationError.PFUserConstructorError)
                 return
             }
+            User.currentUser = User(withPFUser: PFUser.current())
             success(signedInUser)
         }
     }
     
     // Define default behavior for signing up user.
-    func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping UserNetworkCommSuccess, failure: @escaping BaseNetworkCommFailure) {
+    func signUpUserWithUsername(_ username: String, withPassword password: String, success: @escaping (User?)->Swift.Void, failure: @escaping (Error?)->Swift.Void) {
         self.parseUser?.signUpInBackground(block: { (succeeded: Bool, error: Error?) in
             guard succeeded == true, error == nil else {
                 failure(error)

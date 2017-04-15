@@ -6,6 +6,7 @@ target 'TutorU' do
   use_frameworks!
   pod 'Parse'
   pod 'ParseUI'
+  pod 'SVProgressHUD'
 
   # Pods for TutorU
 

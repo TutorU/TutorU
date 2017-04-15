@@ -12,6 +12,7 @@
 		5B07E8762245F950953F93AC /* Pods_TutorUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB460E5E786C4B4C3D203D2 /* Pods_TutorUUITests.framework */; };
 		D56D1E181EA1A63800FBBDCD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D1E171EA1A63800FBBDCD /* Login.storyboard */; };
 		D56D1E1D1EA1C97E00FBBDCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56D1E1A1EA1C96C00FBBDCD /* Main.storyboard */; };
+		D56D1E201EA29BD700FBBDCD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56D1E1F1EA29BD700FBBDCD /* SignUpViewController.swift */; };
 		D5B57A8C1E6693A8008F160D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B57A8B1E6693A8008F160D /* AppDelegate.swift */; };
 		D5B57A8E1E6693A8008F160D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B57A8D1E6693A8008F160D /* LoginViewController.swift */; };
 		D5B57A931E6693A8008F160D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B57A921E6693A8008F160D /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		CFB460E5E786C4B4C3D203D2 /* Pods_TutorUUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TutorUUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D56D1E171EA1A63800FBBDCD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		D56D1E1B1EA1C96C00FBBDCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D56D1E1F1EA29BD700FBBDCD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "UI/View Controllers/SignUpViewController.swift"; sourceTree = "<group>"; };
 		D5B57A881E6693A8008F160D /* TutorU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B57A8B1E6693A8008F160D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B57A8D1E6693A8008F160D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "UI/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
@@ -122,6 +124,15 @@
 				CFB460E5E786C4B4C3D203D2 /* Pods_TutorUUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D56D1E1E1EA29BAA00FBBDCD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D5B57A8D1E6693A8008F160D /* LoginViewController.swift */,
+				D56D1E1F1EA29BD700FBBDCD /* SignUpViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		D5B57A7F1E6693A8008F160D = {
@@ -208,7 +219,7 @@
 		D5C220931E95703700920A9F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5B57A8D1E6693A8008F160D /* LoginViewController.swift */,
+				D56D1E1E1EA29BAA00FBBDCD /* Login */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -518,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5C2209B1E9582D100920A9F /* Class.swift in Sources */,
+				D56D1E201EA29BD700FBBDCD /* SignUpViewController.swift in Sources */,
 				D5B57A8E1E6693A8008F160D /* LoginViewController.swift in Sources */,
 				D5C220A21E95ACBA00920A9F /* PlistManager.swift in Sources */,
 				D5B57A8C1E6693A8008F160D /* AppDelegate.swift in Sources */,
