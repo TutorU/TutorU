@@ -55,7 +55,7 @@
 		D56D1E1B1EA1C96C00FBBDCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5B57A881E6693A8008F160D /* TutorU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B57A8B1E6693A8008F160D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5B57A8D1E6693A8008F160D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D5B57A8D1E6693A8008F160D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "UI/View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		D5B57A921E6693A8008F160D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B57A951E6693A8008F160D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5B57A971E6693A8008F160D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,11 +65,11 @@
 		D5B57AA71E6693A8008F160D /* TutorUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TutorUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B57AAB1E6693A8008F160D /* TutorUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorUUITests.swift; sourceTree = "<group>"; };
 		D5B57AAD1E6693A8008F160D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5C2209A1E9582D100920A9F /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
-		D5C2209D1E95871000920A9F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
-		D5C2209F1E95AC5C00920A9F /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppKeys.plist; sourceTree = "<group>"; };
-		D5C220A11E95ACBA00920A9F /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
-		D5E11A1B1E95E33C00D11FB9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D5C2209A1E9582D100920A9F /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Class.swift; path = Models/Class.swift; sourceTree = "<group>"; };
+		D5C2209D1E95871000920A9F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Definitions.swift; path = "Supporting Files/Definitions.swift"; sourceTree = "<group>"; };
+		D5C2209F1E95AC5C00920A9F /* AppKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppKeys.plist; path = "Supporting Files/AppKeys.plist"; sourceTree = "<group>"; };
+		D5C220A11E95ACBA00920A9F /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = "Supporting Files/PlistManager.swift"; sourceTree = "<group>"; };
+		D5E11A1B1E95E33C00D11FB9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		F58C3C96A91DBA6E948E5D22 /* Pods-TutorUTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TutorUTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TutorUTests/Pods-TutorUTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
