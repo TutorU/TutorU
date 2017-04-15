@@ -12,6 +12,8 @@ import Parse
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow?
+    
     static private let herokuClientKeyPlistIdentifier: String = "HerokuClientKey"
     lazy private var shouldShowFirstTimeLaunch: Bool = { [unowned self] in
         var returnVal = false
@@ -19,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             if let readAppVersion = try plistManager.valueForKey("CFBundleShortVersionString", fromPlistFilename: "Info") as? String {
                 appVersion = readAppVersion
-                // TODO: - Change version number to dynamic!
-                if readAppVersion == "0.1" {
+                if self.isPreRelease(bundleVersion: appVersion) {
                     appIsAlphaOrBeta = true
                     returnVal = true
                 }
@@ -30,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return returnVal
     }()
-
-    var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Initialize Parse
@@ -95,7 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func showAlphaOrBetaAlert() {
         if (UserDefaults.standard.bool(forKey: appFirstTimeLaunchIdentifier)) {
             DispatchQueue.main.async {
-                print("Presenting view controller!")
                 let alertController = UIAlertController(title: "Welcome to beta TutorU", message: "This is a pre-release version of the app. Expect bugs, misbehaviors, crashes, etc. Please send reports to the TutorU team!", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction) in
                     alertController.dismiss(animated: true, completion: nil)
@@ -105,5 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
             }
         }
+    }
+    
+    private func isPreRelease(bundleVersion: String) -> Bool {
+        let characters = bundleVersion.characters
+        return characters.first == "0"
     }
 }
