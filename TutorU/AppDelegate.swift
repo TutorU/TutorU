@@ -96,16 +96,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (UserDefaults.standard.bool(forKey: appFirstTimeLaunchIdentifier)) {
             DispatchQueue.main.async {
                 print("Presenting view controller!")
-                let alertController = UIAlertController(title: "Welcome to beta TutorU", message: "This is a beta version of the app. Expect bugs, misbehaviors, crashes, etc. Please send reports to the TutorU team!", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Welcome to beta TutorU", message: "This is a pre-release version of the app. Expect bugs, misbehaviors, crashes, etc. Please send reports to the TutorU team!", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction) in
-                    alertController.dismiss(animated: true, completion: { 
-                        UserDefaults.standard.set(false, forKey: appFirstTimeLaunchIdentifier)
-                    })
+                    alertController.dismiss(animated: true, completion: nil)
+                    UserDefaults.standard.set(false, forKey: appFirstTimeLaunchIdentifier)
                 })
                 alertController.addAction(okAction)
                 self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
             }
         }
     }
-
 }
