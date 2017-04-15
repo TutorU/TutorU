@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             fatalError("Error retrieving CFBundleShortVersionString")
         }
-        print("Return val: \(returnVal)")
         return returnVal
     }()
 
@@ -52,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }))
         
+        // Show a message to the user on their first launch.
         setUserDefaults()
         if shouldShowFirstTimeLaunch {
             showAlphaOrBetaAlert()
