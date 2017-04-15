@@ -11,6 +11,8 @@ import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    static private let herokuClientKeyPlistIdentifier: String = "HerokuClientKey"
 
     var window: UIWindow?
 
@@ -24,8 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.applicationId = "TutorU"
             configuration.server = "https://tutoruu.herokuapp.com/parse"
             
-            let plistManager: PlistManager = PlistManager.sharedInstance
-            if let clientKey = plistManager.valueForKey("HerokuClientKey", fromPlistFilename: "Keys") {
+            // Use the PlistManager class to retrieve the client key.
+            // This can be useful in the future if we want to hide the client key in commits.
+            let plistManager: PlistManager = PlistManager()
+            if let clientKey = plistManager.valueForKey(AppDelegate.herokuClientKeyPlistIdentifier, fromPlistFilename: "Keys") {
                 configuration.clientKey = clientKey as? String  // set to nil assuming you have not set clientKey
             }
         }))

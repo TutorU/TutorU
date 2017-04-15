@@ -6,5 +6,5 @@
 //  Copyright © 2017 Nick McDonald. All rights reserved.
 //
 
-typealias BaseNetworkCommSuccess = ()->()
-typealias BaseNetworkCommFailure = (Error?)->()
+typealias BaseNetworkCommSuccess = ()->Swift.Void
+typealias BaseNetworkCommFailure = (Error?)->Swift.Void

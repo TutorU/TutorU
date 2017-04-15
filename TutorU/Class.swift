@@ -6,6 +6,7 @@
 //  Copyright © 2017 Nick McDonald. All rights reserved.
 //
 
+/// Classes that students are enrolled in and tutors tutor for.
 protocol Class {
     var name: String { get }
     var number: String? { get }
@@ -22,3 +23,5 @@ extension Class {
 }
 
 protocol UniversityClass: Class { }
+
+protocol HighSchoolClass: Class { }
